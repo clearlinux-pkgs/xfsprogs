@@ -1,0 +1,5 @@
+# needed due to borked linking
+# refer to: http://oss.sgi.com/archives/xfs/2014-12/msg00252.html
+mv libxlog/.libs/*.so* %{buildroot}%{_libdir}
+mv libxfs/.libs/*.so* %{buildroot}%{_libdir}
+mv libxcmd/.libs/*.so* %{buildroot}%{_libdir}
