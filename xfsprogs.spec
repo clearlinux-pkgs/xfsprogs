@@ -4,7 +4,7 @@
 #
 Name     : xfsprogs
 Version  : 3.2.2
-Release  : 4
+Release  : 5
 URL      : ftp://oss.sgi.com/projects/xfs/cmd_tars/xfsprogs-3.2.2.tar.gz
 Source0  : ftp://oss.sgi.com/projects/xfs/cmd_tars/xfsprogs-3.2.2.tar.gz
 Summary  : No detailed summary available
