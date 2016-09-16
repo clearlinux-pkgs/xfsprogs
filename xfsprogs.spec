@@ -4,7 +4,7 @@
 #
 Name     : xfsprogs
 Version  : 4.5.0
-Release  : 11
+Release  : 12
 URL      : ftp://oss.sgi.com/projects/xfs/cmd_tars/xfsprogs-4.5.0.tar.gz
 Source0  : ftp://oss.sgi.com/projects/xfs/cmd_tars/xfsprogs-4.5.0.tar.gz
 Summary  : No detailed summary available
