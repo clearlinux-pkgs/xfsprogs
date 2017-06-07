@@ -1,5 +1,5 @@
 PKG_NAME := xfsprogs
-URL := ftp://oss.sgi.com/projects/xfs/cmd_tars/xfsprogs-4.5.0.tar.gz
-ARCHIVES :=
+URL := https://cdn.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.11.0.tar.xz
+
 
 include ../common/Makefile.common
