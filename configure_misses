@@ -1,0 +1,13 @@
+Configure miss: gmake
+Configure miss: uuid.h usability
+Configure miss: uuid.h presence
+Configure miss: uuid.h
+Configure miss: sys/uuid.h usability
+Configure miss: sys/uuid.h presence
+Configure miss: sys/uuid.h
+Configure miss: uuid_compare
+Configure miss: getmntinfo 
+Configure miss: whether fls is declared
+Configure miss: whether fsetxattr is declared
+Configure miss: GETFSMAP
+Configure miss: umode_t

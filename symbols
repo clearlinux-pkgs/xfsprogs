@@ -32,6 +32,12 @@ libxcmd.so.0:check_overwrite
 libxcmd.so.0:command
 libxcmd.so.0:command_loop
 libxcmd.so.0:command_usage
+libxcmd.so.0:cvt_s16
+libxcmd.so.0:cvt_s32
+libxcmd.so.0:cvt_s64
+libxcmd.so.0:cvt_u16
+libxcmd.so.0:cvt_u32
+libxcmd.so.0:cvt_u64
 libxcmd.so.0:cvtnum
 libxcmd.so.0:cvtstr
 libxcmd.so.0:cvttime
@@ -45,6 +51,7 @@ libxcmd.so.0:fs_cursor_next_entry
 libxcmd.so.0:fs_table_initialise
 libxcmd.so.0:fs_table_insert_project_path
 libxcmd.so.0:fs_table_lookup
+libxcmd.so.0:fs_table_lookup_mount
 libxcmd.so.0:get_topology
 libxcmd.so.0:getprent
 libxcmd.so.0:getprnam
@@ -54,6 +61,7 @@ libxcmd.so.0:getprprid
 libxcmd.so.0:gid_from_string
 libxcmd.so.0:help_init
 libxcmd.so.0:isdigits_only
+libxcmd.so.0:numlen
 libxcmd.so.0:prid_from_string
 libxcmd.so.0:quit_init
 libxcmd.so.0:report_io_times
@@ -194,6 +202,7 @@ libxfs.so.0:libxfs_refcount_lookup_le
 libxfs.so.0:libxfs_refcountbt_init_cursor
 libxfs.so.0:libxfs_report
 libxfs.so.0:libxfs_rmap_alloc
+libxfs.so.0:libxfs_rmap_compare
 libxfs.so.0:libxfs_rmap_get_rec
 libxfs.so.0:libxfs_rmap_lookup_le
 libxfs.so.0:libxfs_rmap_lookup_le_range
@@ -208,6 +217,7 @@ libxfs.so.0:libxfs_symlink_blocks
 libxfs.so.0:libxfs_symlink_hdr_ok
 libxfs.so.0:libxfs_trans_add_item
 libxfs.so.0:libxfs_trans_alloc
+libxfs.so.0:libxfs_trans_alloc_empty
 libxfs.so.0:libxfs_trans_bhold
 libxfs.so.0:libxfs_trans_binval
 libxfs.so.0:libxfs_trans_bjoin
@@ -272,6 +282,8 @@ libxfs.so.0:xfs_alloc_longest_free_extent
 libxfs.so.0:xfs_alloc_lookup_ge
 libxfs.so.0:xfs_alloc_pagf_init
 libxfs.so.0:xfs_alloc_put_freelist
+libxfs.so.0:xfs_alloc_query_all
+libxfs.so.0:xfs_alloc_query_range
 libxfs.so.0:xfs_alloc_set_aside
 libxfs.so.0:xfs_alloc_vextent
 libxfs.so.0:xfs_allocbt_init_cursor
@@ -369,6 +381,7 @@ libxfs.so.0:xfs_btree_lookup
 libxfs.so.0:xfs_btree_magic
 libxfs.so.0:xfs_btree_new_iroot
 libxfs.so.0:xfs_btree_offsets
+libxfs.so.0:xfs_btree_query_all
 libxfs.so.0:xfs_btree_query_range
 libxfs.so.0:xfs_btree_read_bufl
 libxfs.so.0:xfs_btree_reada_bufl
@@ -382,7 +395,6 @@ libxfs.so.0:xfs_btree_visit_blocks
 libxfs.so.0:xfs_buf_item_init
 libxfs.so.0:xfs_buf_item_log
 libxfs.so.0:xfs_calc_dquots_per_chunk
-libxfs.so.0:xfs_check_nostate_extents
 libxfs.so.0:xfs_contig_bits
 libxfs.so.0:xfs_da3_blk_link
 libxfs.so.0:xfs_da3_fixhashpath
@@ -548,6 +560,7 @@ libxfs.so.0:xfs_rmap_free_extent
 libxfs.so.0:xfs_rmap_insert
 libxfs.so.0:xfs_rmap_lookup_eq
 libxfs.so.0:xfs_rmap_map_extent
+libxfs.so.0:xfs_rmap_query_all
 libxfs.so.0:xfs_rmap_unmap_extent
 libxfs.so.0:xfs_rmap_update_init_defer_op
 libxfs.so.0:xfs_rmapbt_calc_reserves
@@ -555,6 +568,8 @@ libxfs.so.0:xfs_rmapbt_calc_size
 libxfs.so.0:xfs_rmapbt_compute_maxlevels
 libxfs.so.0:xfs_rmapbt_max_size
 libxfs.so.0:xfs_rmapbt_maxrecs
+libxfs.so.0:xfs_rtalloc_query_all
+libxfs.so.0:xfs_rtalloc_query_range
 libxfs.so.0:xfs_rtcheck_range
 libxfs.so.0:xfs_rtfind_back
 libxfs.so.0:xfs_rtfind_forw
