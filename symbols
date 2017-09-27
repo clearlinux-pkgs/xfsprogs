@@ -284,6 +284,7 @@ libxfs.so.0:xfs_alloc_pagf_init
 libxfs.so.0:xfs_alloc_put_freelist
 libxfs.so.0:xfs_alloc_query_all
 libxfs.so.0:xfs_alloc_query_range
+libxfs.so.0:xfs_alloc_read_agfl
 libxfs.so.0:xfs_alloc_set_aside
 libxfs.so.0:xfs_alloc_vextent
 libxfs.so.0:xfs_allocbt_init_cursor
@@ -305,6 +306,7 @@ libxfs.so.0:xfs_attr3_leaf_toosmall
 libxfs.so.0:xfs_attr3_leaf_unbalance
 libxfs.so.0:xfs_attr3_rmt_blocks
 libxfs.so.0:xfs_attr_fork_remove
+libxfs.so.0:xfs_attr_get_ilocked
 libxfs.so.0:xfs_attr_leaf_lasthash
 libxfs.so.0:xfs_attr_leaf_order
 libxfs.so.0:xfs_attr_rmtval_get
@@ -366,26 +368,32 @@ libxfs.so.0:xfs_btree_count_blocks
 libxfs.so.0:xfs_btree_decrement
 libxfs.so.0:xfs_btree_delete
 libxfs.so.0:xfs_btree_dup_cursor
+libxfs.so.0:xfs_btree_get_block
 libxfs.so.0:xfs_btree_get_bufl
 libxfs.so.0:xfs_btree_get_bufs
 libxfs.so.0:xfs_btree_get_rec
+libxfs.so.0:xfs_btree_high_key_addr
 libxfs.so.0:xfs_btree_increment
 libxfs.so.0:xfs_btree_init_block_int
 libxfs.so.0:xfs_btree_insert
 libxfs.so.0:xfs_btree_islastblock
+libxfs.so.0:xfs_btree_key_addr
 libxfs.so.0:xfs_btree_lblock_calc_crc
 libxfs.so.0:xfs_btree_lblock_verify_crc
 libxfs.so.0:xfs_btree_log_block
 libxfs.so.0:xfs_btree_log_recs
 libxfs.so.0:xfs_btree_lookup
+libxfs.so.0:xfs_btree_lookup_get_block
 libxfs.so.0:xfs_btree_magic
 libxfs.so.0:xfs_btree_new_iroot
 libxfs.so.0:xfs_btree_offsets
+libxfs.so.0:xfs_btree_ptr_addr
 libxfs.so.0:xfs_btree_query_all
 libxfs.so.0:xfs_btree_query_range
 libxfs.so.0:xfs_btree_read_bufl
 libxfs.so.0:xfs_btree_reada_bufl
 libxfs.so.0:xfs_btree_reada_bufs
+libxfs.so.0:xfs_btree_rec_addr
 libxfs.so.0:xfs_btree_sblock_calc_crc
 libxfs.so.0:xfs_btree_sblock_v5hdr_verify
 libxfs.so.0:xfs_btree_sblock_verify
@@ -420,6 +428,7 @@ libxfs.so.0:xfs_defer_init_op_type
 libxfs.so.0:xfs_defer_join
 libxfs.so.0:xfs_dialloc
 libxfs.so.0:xfs_difree
+libxfs.so.0:xfs_dinode_verify
 libxfs.so.0:xfs_dir2_block_addname
 libxfs.so.0:xfs_dir2_block_lookup
 libxfs.so.0:xfs_dir2_block_removename
@@ -434,6 +443,7 @@ libxfs.so.0:xfs_dir2_data_log_unused
 libxfs.so.0:xfs_dir2_free_read
 libxfs.so.0:xfs_dir2_grow_inode
 libxfs.so.0:xfs_dir2_leaf_addname
+libxfs.so.0:xfs_dir2_leaf_lasthash
 libxfs.so.0:xfs_dir2_leaf_lookup
 libxfs.so.0:xfs_dir2_leaf_removename
 libxfs.so.0:xfs_dir2_leaf_replace
@@ -441,7 +451,6 @@ libxfs.so.0:xfs_dir2_leaf_search_hash
 libxfs.so.0:xfs_dir2_leaf_to_block
 libxfs.so.0:xfs_dir2_leaf_to_node
 libxfs.so.0:xfs_dir2_leaf_trim_data
-libxfs.so.0:xfs_dir2_leafn_lasthash
 libxfs.so.0:xfs_dir2_leafn_lookup_int
 libxfs.so.0:xfs_dir2_leafn_order
 libxfs.so.0:xfs_dir2_leafn_split
@@ -471,6 +480,7 @@ libxfs.so.0:xfs_dir3_leaf_find_entry
 libxfs.so.0:xfs_dir3_leaf_get_buf
 libxfs.so.0:xfs_dir3_leaf_log_ents
 libxfs.so.0:xfs_dir3_leaf_log_header
+libxfs.so.0:xfs_dir3_leaf_read
 libxfs.so.0:xfs_dir3_leafn_read
 libxfs.so.0:xfs_dir_canenter
 libxfs.so.0:xfs_dir_cilookup_result
@@ -482,6 +492,7 @@ libxfs.so.0:xfs_dqcheck
 libxfs.so.0:xfs_extent_free_init_defer_op
 libxfs.so.0:xfs_finobt_calc_reserves
 libxfs.so.0:xfs_free_extent_fix_freelist
+libxfs.so.0:xfs_ialloc_cluster_alignment
 libxfs.so.0:xfs_ialloc_compute_maxlevels
 libxfs.so.0:xfs_ialloc_inode_init
 libxfs.so.0:xfs_ialloc_log_agi
@@ -518,6 +529,7 @@ libxfs.so.0:xfs_iformat_fork
 libxfs.so.0:xfs_imap
 libxfs.so.0:xfs_imap_to_bp
 libxfs.so.0:xfs_init_local_fork
+libxfs.so.0:xfs_inobt_btrec_to_irec
 libxfs.so.0:xfs_inobt_get_rec
 libxfs.so.0:xfs_inobt_init_cursor
 libxfs.so.0:xfs_inobt_irec_to_allocmask
@@ -551,6 +563,7 @@ libxfs.so.0:xfs_refcountbt_compute_maxlevels
 libxfs.so.0:xfs_refcountbt_max_size
 libxfs.so.0:xfs_refcountbt_maxrecs
 libxfs.so.0:xfs_rmap_alloc_extent
+libxfs.so.0:xfs_rmap_btrec_to_irec
 libxfs.so.0:xfs_rmap_convert_extent
 libxfs.so.0:xfs_rmap_find_left_neighbor
 libxfs.so.0:xfs_rmap_finish_one
@@ -570,6 +583,7 @@ libxfs.so.0:xfs_rmapbt_max_size
 libxfs.so.0:xfs_rmapbt_maxrecs
 libxfs.so.0:xfs_rtalloc_query_all
 libxfs.so.0:xfs_rtalloc_query_range
+libxfs.so.0:xfs_rtbuf_get
 libxfs.so.0:xfs_rtcheck_range
 libxfs.so.0:xfs_rtfind_back
 libxfs.so.0:xfs_rtfind_forw
