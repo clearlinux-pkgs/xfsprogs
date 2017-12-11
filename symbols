@@ -129,6 +129,7 @@ libxfs.so.0:libxfs_da_read_buf
 libxfs.so.0:libxfs_da_shrink_inode
 libxfs.so.0:libxfs_defer_cancel
 libxfs.so.0:libxfs_defer_finish
+libxfs.so.0:libxfs_defer_ijoin
 libxfs.so.0:libxfs_defer_init
 libxfs.so.0:libxfs_destroy
 libxfs.so.0:libxfs_device_alignment
@@ -236,9 +237,11 @@ libxfs.so.0:libxfs_trans_inode_alloc_buf
 libxfs.so.0:libxfs_trans_log_buf
 libxfs.so.0:libxfs_trans_log_inode
 libxfs.so.0:libxfs_trans_mod_sb
+libxfs.so.0:libxfs_trans_ordered_buf
 libxfs.so.0:libxfs_trans_read_buf_map
 libxfs.so.0:libxfs_trans_resv_calc
 libxfs.so.0:libxfs_trans_roll
+libxfs.so.0:libxfs_trans_roll_inode
 libxfs.so.0:libxfs_umount
 libxfs.so.0:libxfs_writebuf
 libxfs.so.0:libxfs_writebuf_int
@@ -425,7 +428,6 @@ libxfs.so.0:xfs_default_attroffset
 libxfs.so.0:xfs_defer_add
 libxfs.so.0:xfs_defer_has_unfinished_work
 libxfs.so.0:xfs_defer_init_op_type
-libxfs.so.0:xfs_defer_join
 libxfs.so.0:xfs_dialloc
 libxfs.so.0:xfs_difree
 libxfs.so.0:xfs_dinode_verify
@@ -522,6 +524,7 @@ libxfs.so.0:xfs_iext_remove_direct
 libxfs.so.0:xfs_iext_remove_indirect
 libxfs.so.0:xfs_iext_remove_inline
 libxfs.so.0:xfs_iext_state_to_fork
+libxfs.so.0:xfs_iext_update_extent
 libxfs.so.0:xfs_iextents_copy
 libxfs.so.0:xfs_iflush_fork
 libxfs.so.0:xfs_ifork_init_cow
@@ -597,6 +600,7 @@ libxfs.so.0:xfs_symlink_local_to_remote
 libxfs.so.0:xfs_sync_sb
 libxfs.so.0:xfs_trans_buf_item_match
 libxfs.so.0:xfs_trim_extent
+libxfs.so.0:xfs_trim_extent_eof
 libxfs.so.0:xfs_verifier_error
 libxlog.so.0:xlog_bread
 libxlog.so.0:xlog_bread_noalign
