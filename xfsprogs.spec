@@ -4,7 +4,7 @@
 #
 Name     : xfsprogs
 Version  : 4.14.0
-Release  : 17
+Release  : 18
 URL      : https://cdn.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.14.0.tar.xz
 Source0  : https://cdn.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.14.0.tar.xz
 Summary  : No detailed summary available
