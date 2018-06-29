@@ -4,7 +4,7 @@
 #
 Name     : xfsprogs
 Version  : 4.17.0
-Release  : 21
+Release  : 22
 URL      : https://cdn.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.17.0.tar.xz
 Source0  : https://cdn.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.17.0.tar.xz
 Summary  : No detailed summary available
@@ -68,6 +68,14 @@ Requires: xfsprogs-man
 doc components for the xfsprogs package.
 
 
+%package extras
+Summary: extras components for the xfsprogs package.
+Group: Default
+
+%description extras
+extras components for the xfsprogs package.
+
+
 %package lib
 Summary: lib components for the xfsprogs package.
 Group: Libraries
@@ -109,12 +117,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530236103
+export SOURCE_DATE_EPOCH=1530287688
 %configure --disable-static --enable-static
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1530236103
+export SOURCE_DATE_EPOCH=1530287688
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/xfsprogs
 cp doc/COPYING %{buildroot}/usr/share/doc/xfsprogs/doc_COPYING
@@ -129,8 +137,8 @@ mv libxcmd/.libs/*.so* %{buildroot}%{_libdir}
 
 %files
 %defattr(-,root,root,-)
-/usr/lib64/xfsprogs/xfs_scrub_all.cron
-/usr/lib64/xfsprogs/xfs_scrub_fail
+%exclude /usr/lib64/xfsprogs/xfs_scrub_all.cron
+%exclude /usr/lib64/xfsprogs/xfs_scrub_fail
 
 %files bin
 %defattr(-,root,root,-)
@@ -186,6 +194,11 @@ mv libxcmd/.libs/*.so* %{buildroot}%{_libdir}
 %files doc
 %defattr(0644,root,root,0755)
 %doc /usr/share/doc/xfsprogs/*
+
+%files extras
+%defattr(-,root,root,-)
+/usr/lib64/xfsprogs/xfs_scrub_all.cron
+/usr/lib64/xfsprogs/xfs_scrub_fail
 
 %files lib
 %defattr(-,root,root,-)
