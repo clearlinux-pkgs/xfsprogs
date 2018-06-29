@@ -4,3 +4,4 @@
 /usr/lib/systemd/system/xfs_scrub_all.service
 /usr/lib/systemd/system/xfs_scrub_all.timer
 /usr/lib/systemd/system/xfs_scrub_fail@.service
+/usr/bin/xfs_scrub_all
