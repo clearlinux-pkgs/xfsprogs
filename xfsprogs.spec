@@ -4,7 +4,7 @@
 #
 Name     : xfsprogs
 Version  : 4.17.0
-Release  : 22
+Release  : 23
 URL      : https://cdn.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.17.0.tar.xz
 Source0  : https://cdn.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.17.0.tar.xz
 Summary  : No detailed summary available
@@ -117,12 +117,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530287688
+export SOURCE_DATE_EPOCH=1530291863
 %configure --disable-static --enable-static
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1530287688
+export SOURCE_DATE_EPOCH=1530291863
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/xfsprogs
 cp doc/COPYING %{buildroot}/usr/share/doc/xfsprogs/doc_COPYING
@@ -168,10 +168,10 @@ mv libxcmd/.libs/*.so* %{buildroot}%{_libdir}
 
 %files config
 %defattr(-,root,root,-)
-/usr/lib/systemd/system/xfs_scrub@.service
-/usr/lib/systemd/system/xfs_scrub_all.service
-/usr/lib/systemd/system/xfs_scrub_all.timer
-/usr/lib/systemd/system/xfs_scrub_fail@.service
+%exclude /usr/lib/systemd/system/xfs_scrub@.service
+%exclude /usr/lib/systemd/system/xfs_scrub_all.service
+%exclude /usr/lib/systemd/system/xfs_scrub_all.timer
+%exclude /usr/lib/systemd/system/xfs_scrub_fail@.service
 
 %files dev
 %defattr(-,root,root,-)
@@ -197,6 +197,10 @@ mv libxcmd/.libs/*.so* %{buildroot}%{_libdir}
 
 %files extras
 %defattr(-,root,root,-)
+/usr/lib/systemd/system/xfs_scrub@.service
+/usr/lib/systemd/system/xfs_scrub_all.service
+/usr/lib/systemd/system/xfs_scrub_all.timer
+/usr/lib/systemd/system/xfs_scrub_fail@.service
 /usr/lib64/xfsprogs/xfs_scrub_all.cron
 /usr/lib64/xfsprogs/xfs_scrub_fail
 
