@@ -1,2 +1,6 @@
 /usr/lib64/xfsprogs/xfs_scrub_all.cron
 /usr/lib64/xfsprogs/xfs_scrub_fail
+/usr/lib/systemd/system/xfs_scrub@.service
+/usr/lib/systemd/system/xfs_scrub_all.service
+/usr/lib/systemd/system/xfs_scrub_all.timer
+/usr/lib/systemd/system/xfs_scrub_fail@.service
