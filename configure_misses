@@ -15,7 +15,4 @@ Configure miss: attr/attributes.h usability
 Configure miss: attr/attributes.h presence
 Configure miss: attr/attributes.h
 Configure miss: struct attrlist_cursor
-Configure miss: libicu
-Configure miss: systemd
-Configure miss: systemd system unit dir
 Configure miss: umode_t

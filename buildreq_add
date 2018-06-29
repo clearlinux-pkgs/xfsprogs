@@ -4,3 +4,5 @@ util-linux-dev
 e2fsprogs-dev
 readline-dev
 ncurses-dev
+systemd-dev
+icu4c-dev

@@ -4,21 +4,24 @@
 #
 Name     : xfsprogs
 Version  : 4.17.0
-Release  : 20
+Release  : 21
 URL      : https://cdn.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.17.0.tar.xz
 Source0  : https://cdn.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.17.0.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
 Requires: xfsprogs-bin
+Requires: xfsprogs-config
 Requires: xfsprogs-lib
 Requires: xfsprogs-license
 Requires: xfsprogs-locales
 Requires: xfsprogs-man
 BuildRequires : e2fsprogs-dev
+BuildRequires : icu4c-dev
 BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(uuid)
 BuildRequires : readline-dev
+BuildRequires : systemd-dev
 BuildRequires : util-linux-dev
 
 %description
@@ -29,11 +32,20 @@ install configuration steps.
 %package bin
 Summary: bin components for the xfsprogs package.
 Group: Binaries
+Requires: xfsprogs-config
 Requires: xfsprogs-license
 Requires: xfsprogs-man
 
 %description bin
 bin components for the xfsprogs package.
+
+
+%package config
+Summary: config components for the xfsprogs package.
+Group: Default
+
+%description config
+config components for the xfsprogs package.
 
 
 %package dev
@@ -97,12 +109,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530235754
+export SOURCE_DATE_EPOCH=1530236103
 %configure --disable-static --enable-static
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1530235754
+export SOURCE_DATE_EPOCH=1530236103
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/xfsprogs
 cp doc/COPYING %{buildroot}/usr/share/doc/xfsprogs/doc_COPYING
@@ -118,6 +130,7 @@ mv libxcmd/.libs/*.so* %{buildroot}%{_libdir}
 %files
 %defattr(-,root,root,-)
 /usr/lib64/xfsprogs/xfs_scrub_all.cron
+/usr/lib64/xfsprogs/xfs_scrub_fail
 
 %files bin
 %defattr(-,root,root,-)
@@ -144,6 +157,13 @@ mv libxcmd/.libs/*.so* %{buildroot}%{_libdir}
 /usr/bin/xfs_scrub
 /usr/bin/xfs_scrub_all
 /usr/bin/xfs_spaceman
+
+%files config
+%defattr(-,root,root,-)
+/usr/lib/systemd/system/xfs_scrub@.service
+/usr/lib/systemd/system/xfs_scrub_all.service
+/usr/lib/systemd/system/xfs_scrub_all.timer
+/usr/lib/systemd/system/xfs_scrub_fail@.service
 
 %files dev
 %defattr(-,root,root,-)
