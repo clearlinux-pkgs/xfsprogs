@@ -1,3 +1,49 @@
+xfsprogs (4.17.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Nathan Scott <nathans@debian.org>  Thu, 28 Jun 2018 11:49:17 -0500
+
+xfsprogs (4.17.0-rc1-1) unstable; urgency=low
+
+  * New upstream pre-release
+
+ -- Nathan Scott <nathans@debian.org>  Fri, 22 Jun 2018 13:51:30 -0500
+
+xfsprogs (4.16.1-1) unstable; urgency=low
+
+  * New upstream release
+  * Remove bashism in fsck.xfs
+
+ -- Nathan Scott <nathans@debian.org>  Mon, 30 Apr 2018 21:27:59 -0500
+
+xfsprogs (4.16.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Nathan Scott <nathans@debian.org>  Thu, 26 Apr 2018 15:13:07 -0500
+
+xfsprogs (4.15.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Nathan Scott <nathans@debian.org>  Mon, 26 Feb 2018 19:45:12 -0600
+
+xfsprogs (4.15.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Nathan Scott <nathans@debian.org>  Fri, 23 Feb 2018 13:06:35 -0600
+
+xfsprogs (4.15.0-rc1-1) unstable; urgency=low
+  * Use source-only uploads using quilt format (closes: #144876)
+  * Includes copy_file_range patch for xfs_io (closes: #890716)
+  * Drop libreadline5-dev package dependency (closes: #695875)
+  * Includes old metadump CVE-2012-2150 fix (closes: #793495)
+  * New upstream release (closes: #874209)
+
+ -- Nathan Scott <nathans@debian.org>  Wed, 21 Feb 2018 10:52:38 -0600
+
 xfsprogs (4.14.0) unstable; urgency=low
 
   * New upstream release

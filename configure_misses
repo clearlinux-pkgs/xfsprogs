@@ -9,5 +9,13 @@ Configure miss: uuid_compare
 Configure miss: getmntinfo 
 Configure miss: whether fls is declared
 Configure miss: whether fsetxattr is declared
-Configure miss: GETFSMAP
+Configure miss: MAP_SYNC
+Configure miss: library containing dm_task_create
+Configure miss: attr/attributes.h usability
+Configure miss: attr/attributes.h presence
+Configure miss: attr/attributes.h
+Configure miss: struct attrlist_cursor
+Configure miss: libicu
+Configure miss: systemd
+Configure miss: systemd system unit dir
 Configure miss: umode_t
