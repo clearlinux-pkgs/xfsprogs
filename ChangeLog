@@ -1,3 +1,22 @@
+xfsprogs (4.19.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Nathan Scott <nathans@debian.org>  Fri, 09 Nov 2018 14:20:39 -0600
+
+xfsprogs (4.19.0-rc1-1) unstable; urgency=low
+
+  * New upstream pre-release
+
+ -- Nathan Scott <nathans@debian.org>  Fri, 02 Nov 2018 09:40:25 -0500
+
+xfsprogs (4.19.0-rc0-1) unstable; urgency=low
+
+  * New upstream pre-release
+  * Merge libxfs changes from kernel-4.19
+
+ -- Nathan Scott <nathans@debian.org>  Wed, 10 Oct 2018 17:52:48 +1100
+
 xfsprogs (4.18.0-1) unstable; urgency=low
 
   * New upstream release

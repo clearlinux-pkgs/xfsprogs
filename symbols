@@ -42,7 +42,6 @@ libxcmd.so.0:tdiv
 libxcmd.so.0:timespec_from_string
 libxcmd.so.0:timestr
 libxcmd.so.0:tsub
-libxfs.so.0:__libxfs_getbufr
 libxfs.so.0:__xfs_bmap_add_free
 libxfs.so.0:__xfs_btree_check_lblock
 libxfs.so.0:__xfs_btree_check_sblock
@@ -50,7 +49,6 @@ libxfs.so.0:__xfs_bunmapi
 libxfs.so.0:__xfs_dir3_data_check
 libxfs.so.0:__xfs_free_extent
 libxfs.so.0:cache_destroy
-libxfs.so.0:cache_expand
 libxfs.so.0:cache_flush
 libxfs.so.0:cache_init
 libxfs.so.0:cache_node_get
@@ -94,7 +92,6 @@ libxfs.so.0:libxfs_bmapi_read
 libxfs.so.0:libxfs_bmapi_write
 libxfs.so.0:libxfs_bmbt_maxrecs
 libxfs.so.0:libxfs_bmdr_maxrecs
-libxfs.so.0:libxfs_bprint
 libxfs.so.0:libxfs_btree_del_cursor
 libxfs.so.0:libxfs_btree_init_block
 libxfs.so.0:libxfs_buftarg_init
@@ -106,8 +103,6 @@ libxfs.so.0:libxfs_da_read_buf
 libxfs.so.0:libxfs_da_shrink_inode
 libxfs.so.0:libxfs_defer_cancel
 libxfs.so.0:libxfs_defer_finish
-libxfs.so.0:libxfs_defer_ijoin
-libxfs.so.0:libxfs_defer_init
 libxfs.so.0:libxfs_destroy
 libxfs.so.0:libxfs_device_alignment
 libxfs.so.0:libxfs_device_close
@@ -140,9 +135,7 @@ libxfs.so.0:libxfs_getbuf
 libxfs.so.0:libxfs_getbuf_flags
 libxfs.so.0:libxfs_getbuf_map
 libxfs.so.0:libxfs_getbufr
-libxfs.so.0:libxfs_getbufr_map
 libxfs.so.0:libxfs_getsb
-libxfs.so.0:libxfs_ialloc
 libxfs.so.0:libxfs_idata_realloc
 libxfs.so.0:libxfs_idestroy_fork
 libxfs.so.0:libxfs_iext_lookup_extent
@@ -158,9 +151,8 @@ libxfs.so.0:libxfs_inode_validate_cowextsize
 libxfs.so.0:libxfs_inode_validate_extsize
 libxfs.so.0:libxfs_inode_verify_forks
 libxfs.so.0:libxfs_iomove
-libxfs.so.0:libxfs_iprint
-libxfs.so.0:libxfs_iput
 libxfs.so.0:libxfs_iread_extents
+libxfs.so.0:libxfs_irele
 libxfs.so.0:libxfs_log_calc_minimum_size
 libxfs.so.0:libxfs_log_clear
 libxfs.so.0:libxfs_log_get_max_trans_res
@@ -204,6 +196,7 @@ libxfs.so.0:libxfs_symlink_hdr_ok
 libxfs.so.0:libxfs_trans_add_item
 libxfs.so.0:libxfs_trans_alloc
 libxfs.so.0:libxfs_trans_alloc_empty
+libxfs.so.0:libxfs_trans_alloc_rollable
 libxfs.so.0:libxfs_trans_bhold
 libxfs.so.0:libxfs_trans_binval
 libxfs.so.0:libxfs_trans_bjoin
@@ -400,9 +393,9 @@ libxfs.so.0:xfs_da_state_free
 libxfs.so.0:xfs_da_unmount
 libxfs.so.0:xfs_default_attroffset
 libxfs.so.0:xfs_defer_add
-libxfs.so.0:xfs_defer_bjoin
-libxfs.so.0:xfs_defer_has_unfinished_work
+libxfs.so.0:xfs_defer_finish_noroll
 libxfs.so.0:xfs_defer_init_op_type
+libxfs.so.0:xfs_defer_move
 libxfs.so.0:xfs_dialloc
 libxfs.so.0:xfs_difree
 libxfs.so.0:xfs_dir2_block_addname
@@ -590,6 +583,7 @@ libxfs.so.0:xfs_verify_agbno
 libxfs.so.0:xfs_verify_agino
 libxfs.so.0:xfs_verify_dir_ino
 libxfs.so.0:xfs_verify_fsbno
+libxfs.so.0:xfs_verify_icount
 libxlog.so.0:xlog_bread
 libxlog.so.0:xlog_bread_noalign
 libxlog.so.0:xlog_do_recovery_pass
