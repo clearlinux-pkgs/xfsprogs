@@ -4,7 +4,7 @@
 #
 Name     : xfsprogs
 Version  : 4.19.0
-Release  : 27
+Release  : 28
 URL      : https://cdn.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.19.0.tar.xz
 Source0  : https://cdn.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.19.0.tar.xz
 Summary  : No detailed summary available
