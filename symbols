@@ -142,6 +142,7 @@ libxfs.so.0:libxfs_iext_lookup_extent
 libxfs.so.0:libxfs_iflush_int
 libxfs.so.0:libxfs_iget
 libxfs.so.0:libxfs_init
+libxfs.so.0:libxfs_init_local_fork
 libxfs.so.0:libxfs_initialize_perag_data
 libxfs.so.0:libxfs_inobt_maxrecs
 libxfs.so.0:libxfs_inode_alloc
@@ -208,7 +209,6 @@ libxfs.so.0:libxfs_trans_dirty_buf
 libxfs.so.0:libxfs_trans_get_buf_map
 libxfs.so.0:libxfs_trans_getsb
 libxfs.so.0:libxfs_trans_ichgtime
-libxfs.so.0:libxfs_trans_iget
 libxfs.so.0:libxfs_trans_ijoin
 libxfs.so.0:libxfs_trans_ijoin_ref
 libxfs.so.0:libxfs_trans_init
@@ -276,9 +276,11 @@ libxfs.so.0:xfs_attr_fork_remove
 libxfs.so.0:xfs_attr_get_ilocked
 libxfs.so.0:xfs_attr_leaf_lasthash
 libxfs.so.0:xfs_attr_leaf_order
+libxfs.so.0:xfs_attr_remove_args
 libxfs.so.0:xfs_attr_rmtval_get
 libxfs.so.0:xfs_attr_rmtval_remove
 libxfs.so.0:xfs_attr_rmtval_set
+libxfs.so.0:xfs_attr_set_args
 libxfs.so.0:xfs_attr_shortform_add
 libxfs.so.0:xfs_attr_shortform_allfit
 libxfs.so.0:xfs_attr_shortform_bytesfit
@@ -305,9 +307,9 @@ libxfs.so.0:xfs_bmap_last_extent
 libxfs.so.0:xfs_bmap_local_to_extents_empty
 libxfs.so.0:xfs_bmap_map_extent
 libxfs.so.0:xfs_bmap_one_block
+libxfs.so.0:xfs_bmap_set_attrforkoff
 libxfs.so.0:xfs_bmap_split_extent
 libxfs.so.0:xfs_bmap_unmap_extent
-libxfs.so.0:xfs_bmap_update_init_defer_op
 libxfs.so.0:xfs_bmap_validate_extent
 libxfs.so.0:xfs_bmapi_remap
 libxfs.so.0:xfs_bmapi_reserve_delalloc
@@ -394,7 +396,6 @@ libxfs.so.0:xfs_da_unmount
 libxfs.so.0:xfs_default_attroffset
 libxfs.so.0:xfs_defer_add
 libxfs.so.0:xfs_defer_finish_noroll
-libxfs.so.0:xfs_defer_init_op_type
 libxfs.so.0:xfs_defer_move
 libxfs.so.0:xfs_dialloc
 libxfs.so.0:xfs_difree
@@ -458,7 +459,6 @@ libxfs.so.0:xfs_dir_isempty
 libxfs.so.0:xfs_dir_removename
 libxfs.so.0:xfs_dir_startup
 libxfs.so.0:xfs_dqblk_verify
-libxfs.so.0:xfs_extent_free_init_defer_op
 libxfs.so.0:xfs_finobt_calc_reserves
 libxfs.so.0:xfs_free_agfl_block
 libxfs.so.0:xfs_free_extent_fix_freelist
@@ -492,7 +492,6 @@ libxfs.so.0:xfs_ifork_verify_data
 libxfs.so.0:xfs_iformat_fork
 libxfs.so.0:xfs_imap
 libxfs.so.0:xfs_imap_to_bp
-libxfs.so.0:xfs_init_local_fork
 libxfs.so.0:xfs_inobt_btrec_to_irec
 libxfs.so.0:xfs_inobt_get_rec
 libxfs.so.0:xfs_inobt_init_cursor
@@ -526,7 +525,6 @@ libxfs.so.0:xfs_refcount_insert
 libxfs.so.0:xfs_refcount_lookup_eq
 libxfs.so.0:xfs_refcount_lookup_ge
 libxfs.so.0:xfs_refcount_recover_cow_leftovers
-libxfs.so.0:xfs_refcount_update_init_defer_op
 libxfs.so.0:xfs_refcountbt_calc_reserves
 libxfs.so.0:xfs_refcountbt_calc_size
 libxfs.so.0:xfs_refcountbt_compute_maxlevels
@@ -549,7 +547,6 @@ libxfs.so.0:xfs_rmap_map_raw
 libxfs.so.0:xfs_rmap_query_all
 libxfs.so.0:xfs_rmap_record_exists
 libxfs.so.0:xfs_rmap_unmap_extent
-libxfs.so.0:xfs_rmap_update_init_defer_op
 libxfs.so.0:xfs_rmapbt_calc_reserves
 libxfs.so.0:xfs_rmapbt_calc_size
 libxfs.so.0:xfs_rmapbt_compute_maxlevels
