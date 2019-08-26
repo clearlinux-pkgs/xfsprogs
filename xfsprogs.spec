@@ -4,7 +4,7 @@
 #
 Name     : xfsprogs
 Version  : 5.0.0
-Release  : 29
+Release  : 30
 URL      : https://cdn.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.0.0.tar.xz
 Source0  : https://cdn.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.0.0.tar.xz
 Summary  : No detailed summary available
@@ -15,7 +15,6 @@ Requires: xfsprogs-lib = %{version}-%{release}
 Requires: xfsprogs-license = %{version}-%{release}
 Requires: xfsprogs-locales = %{version}-%{release}
 Requires: xfsprogs-man = %{version}-%{release}
-Requires: xfsprogs-services = %{version}-%{release}
 BuildRequires : e2fsprogs-dev
 BuildRequires : icu4c-dev
 BuildRequires : ncurses-dev
@@ -33,7 +32,6 @@ install configuration steps.
 Summary: bin components for the xfsprogs package.
 Group: Binaries
 Requires: xfsprogs-license = %{version}-%{release}
-Requires: xfsprogs-services = %{version}-%{release}
 
 %description bin
 bin components for the xfsprogs package.
@@ -101,14 +99,6 @@ Group: Default
 man components for the xfsprogs package.
 
 
-%package services
-Summary: services components for the xfsprogs package.
-Group: Systemd services
-
-%description services
-services components for the xfsprogs package.
-
-
 %prep
 %setup -q -n xfsprogs-5.0.0
 
@@ -116,14 +106,18 @@ services components for the xfsprogs package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1556924005
-export LDFLAGS="${LDFLAGS} -fno-lto"
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1566841262
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static --enable-static
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1556924005
+export SOURCE_DATE_EPOCH=1566841262
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xfsprogs
 cp debian/copyright %{buildroot}/usr/share/package-licenses/xfsprogs/debian_copyright
@@ -137,12 +131,9 @@ mv libxcmd/.libs/*.so* %{buildroot}%{_libdir}
 
 %files
 %defattr(-,root,root,-)
-%exclude /usr/lib64/xfsprogs/xfs_scrub_all.cron
-%exclude /usr/lib64/xfsprogs/xfs_scrub_fail
 
 %files bin
 %defattr(-,root,root,-)
-%exclude /usr/bin/xfs_scrub_all
 /usr/bin/fsck.xfs
 /usr/bin/mkfs.xfs
 /usr/bin/xfs_admin
@@ -255,13 +246,6 @@ mv libxcmd/.libs/*.so* %{buildroot}%{_libdir}
 /usr/share/man/man8/xfs_scrub.8
 /usr/share/man/man8/xfs_scrub_all.8
 /usr/share/man/man8/xfs_spaceman.8
-
-%files services
-%defattr(-,root,root,-)
-%exclude /usr/lib/systemd/system/xfs_scrub@.service
-%exclude /usr/lib/systemd/system/xfs_scrub_all.service
-%exclude /usr/lib/systemd/system/xfs_scrub_all.timer
-%exclude /usr/lib/systemd/system/xfs_scrub_fail@.service
 
 %files locales -f xfsprogs.lang
 %defattr(-,root,root,-)

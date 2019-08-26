@@ -1,7 +1,7 @@
 libblkid.so.1
 libc.so.6
-libicui18n.so.63
-libicuuc.so.63
+libicui18n.so.64
+libicuuc.so.64
 libpthread.so.0
 librt.so.1
 libuuid.so.1
