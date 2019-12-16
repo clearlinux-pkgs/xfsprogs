@@ -6,3 +6,4 @@ readline-dev
 ncurses-dev
 systemd-dev
 icu4c-dev
+LVM2-dev

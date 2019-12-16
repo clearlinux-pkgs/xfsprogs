@@ -6,7 +6,6 @@ Configure miss: sys/uuid.h presence
 Configure miss: sys/uuid.h
 Configure miss: uuid_compare
 Configure miss: whether fls is declared
-Configure miss: library containing dm_task_create
 Configure miss: attr/attributes.h usability
 Configure miss: attr/attributes.h presence
 Configure miss: attr/attributes.h

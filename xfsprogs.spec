@@ -4,7 +4,7 @@
 #
 Name     : xfsprogs
 Version  : 5.0.0
-Release  : 30
+Release  : 31
 URL      : https://cdn.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.0.0.tar.xz
 Source0  : https://cdn.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.0.0.tar.xz
 Summary  : No detailed summary available
@@ -15,6 +15,7 @@ Requires: xfsprogs-lib = %{version}-%{release}
 Requires: xfsprogs-license = %{version}-%{release}
 Requires: xfsprogs-locales = %{version}-%{release}
 Requires: xfsprogs-man = %{version}-%{release}
+BuildRequires : LVM2-dev
 BuildRequires : e2fsprogs-dev
 BuildRequires : icu4c-dev
 BuildRequires : ncurses-dev
@@ -101,13 +102,14 @@ man components for the xfsprogs package.
 
 %prep
 %setup -q -n xfsprogs-5.0.0
+cd %{_builddir}/xfsprogs-5.0.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1566841262
+export SOURCE_DATE_EPOCH=1576463205
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -117,13 +119,15 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1566841262
+export SOURCE_DATE_EPOCH=1576463205
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xfsprogs
-cp debian/copyright %{buildroot}/usr/share/package-licenses/xfsprogs/debian_copyright
+cp %{_builddir}/xfsprogs-5.0.0/debian/copyright %{buildroot}/usr/share/package-licenses/xfsprogs/974121cb7805fb825e64139868b3c0ef663f689c
 %make_install PKG_ROOT_SBIN_DIR=%{_sbindir} PKG_ROOT_LIB_DIR=%{_libdir} install-dev
 %find_lang xfsprogs
 ## install_append content
+# needed due to borked linking
+# refer to: http://oss.sgi.com/archives/xfs/2014-12/msg00252.html
 mv libxlog/.libs/*.so* %{buildroot}%{_libdir}
 mv libxfs/.libs/*.so* %{buildroot}%{_libdir}
 mv libxcmd/.libs/*.so* %{buildroot}%{_libdir}
@@ -216,7 +220,7 @@ mv libxcmd/.libs/*.so* %{buildroot}%{_libdir}
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/xfsprogs/debian_copyright
+/usr/share/package-licenses/xfsprogs/974121cb7805fb825e64139868b3c0ef663f689c
 
 %files man
 %defattr(0644,root,root,0755)

@@ -1,5 +1,6 @@
 libblkid.so.1
 libc.so.6
+libdevmapper.so.1.02
 libicui18n.so.64
 libicuuc.so.64
 libpthread.so.0
