@@ -6,7 +6,6 @@ Configure miss: sys/uuid.h presence
 Configure miss: sys/uuid.h
 Configure miss: uuid_compare
 Configure miss: whether fls is declared
-Configure miss: struct fscrypt_add_key_arg.key_id
 Configure miss: MAP_SYNC
 Configure miss: attr/attributes.h usability
 Configure miss: attr/attributes.h presence

@@ -1,9 +1,10 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
-util-linux-dev
-e2fsprogs-dev
-readline-dev
-ncurses-dev
-systemd-dev
-icu4c-dev
 LVM2-dev
+e2fsprogs-dev
+icu4c-dev
+inih-dev
+ncurses-dev
+readline-dev
+systemd-dev
+util-linux-dev

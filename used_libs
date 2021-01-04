@@ -3,6 +3,7 @@ libc.so.6
 libdevmapper.so.1.02
 libicui18n.so.67
 libicuuc.so.67
+libinih.so.0
 libpthread.so.0
 librt.so.1
 libuuid.so.1
