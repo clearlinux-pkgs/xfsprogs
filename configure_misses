@@ -1,14 +1,14 @@
-Configure miss: uuid.h usability
-Configure miss: uuid.h presence
-Configure miss: uuid.h
-Configure miss: sys/uuid.h usability
-Configure miss: sys/uuid.h presence
+Configure miss: MAP_SYNC
+Configure miss: attr/attributes.h
+Configure miss: attr/attributes.h presence
+Configure miss: attr/attributes.h usability
+Configure miss: struct attrlist_cursor
 Configure miss: sys/uuid.h
+Configure miss: sys/uuid.h presence
+Configure miss: sys/uuid.h usability
+Configure miss: umode_t
+Configure miss: uuid.h
+Configure miss: uuid.h presence
+Configure miss: uuid.h usability
 Configure miss: uuid_compare
 Configure miss: whether fls is declared
-Configure miss: MAP_SYNC
-Configure miss: attr/attributes.h usability
-Configure miss: attr/attributes.h presence
-Configure miss: attr/attributes.h
-Configure miss: struct attrlist_cursor
-Configure miss: umode_t
