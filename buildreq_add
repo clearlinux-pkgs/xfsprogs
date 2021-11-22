@@ -8,3 +8,4 @@ ncurses-dev
 readline-dev
 systemd-dev
 util-linux-dev
+userspace-rcu-dev
