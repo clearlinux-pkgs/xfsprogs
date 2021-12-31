@@ -4,7 +4,7 @@
 #
 Name     : xfsprogs
 Version  : 5.14.2
-Release  : 44
+Release  : 45
 URL      : https://mirrors.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.14.2.tar.xz
 Source0  : https://mirrors.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.14.2.tar.xz
 Summary  : No detailed summary available
