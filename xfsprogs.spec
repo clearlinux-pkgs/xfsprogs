@@ -5,7 +5,7 @@
 #
 Name     : xfsprogs
 Version  : 6.2.0
-Release  : 53
+Release  : 54
 URL      : https://mirrors.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-6.2.0.tar.xz
 Source0  : https://mirrors.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-6.2.0.tar.xz
 Summary  : No detailed summary available
@@ -18,6 +18,7 @@ Requires: xfsprogs-license = %{version}-%{release}
 Requires: xfsprogs-locales = %{version}-%{release}
 Requires: xfsprogs-man = %{version}-%{release}
 BuildRequires : LVM2-dev
+BuildRequires : buildreq-configure
 BuildRequires : e2fsprogs-dev
 BuildRequires : icu4c-dev
 BuildRequires : inih-dev
@@ -121,34 +122,65 @@ man components for the xfsprogs package.
 %prep
 %setup -q -n xfsprogs-6.2.0
 cd %{_builddir}/xfsprogs-6.2.0
+pushd ..
+cp -a xfsprogs-6.2.0 buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679677405
+export SOURCE_DATE_EPOCH=1683666719
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 %configure --disable-static --enable-static
 make  %{?_smp_mflags}
 
+unset PKG_CONFIG_PATH
+pushd ../buildavx2/
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
+export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
+export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3"
+export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
+%configure --disable-static --enable-static
+make  %{?_smp_mflags}
+popd
 %install
-export SOURCE_DATE_EPOCH=1679677405
+export SOURCE_DATE_EPOCH=1683666719
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xfsprogs
 cp %{_builddir}/xfsprogs-%{version}/debian/copyright %{buildroot}/usr/share/package-licenses/xfsprogs/37d59df178f349b9b48ddae9baf7de9fe0c41069 || :
+pushd ../buildavx2/
+%make_install_v3 PKG_ROOT_SBIN_DIR=%{_sbindir} PKG_ROOT_LIB_DIR=%{_libdir} install-dev
+popd
 %make_install PKG_ROOT_SBIN_DIR=%{_sbindir} PKG_ROOT_LIB_DIR=%{_libdir} install-dev
 %find_lang xfsprogs
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
 
 %files bin
 %defattr(-,root,root,-)
+/V3/usr/bin/mkfs.xfs
+/V3/usr/bin/xfs_copy
+/V3/usr/bin/xfs_db
+/V3/usr/bin/xfs_estimate
+/V3/usr/bin/xfs_fsr
+/V3/usr/bin/xfs_growfs
+/V3/usr/bin/xfs_io
+/V3/usr/bin/xfs_logprint
+/V3/usr/bin/xfs_mdrestore
+/V3/usr/bin/xfs_quota
+/V3/usr/bin/xfs_repair
+/V3/usr/bin/xfs_rtcp
+/V3/usr/bin/xfs_scrub
+/V3/usr/bin/xfs_spaceman
 /usr/bin/fsck.xfs
 /usr/bin/mkfs.xfs
 /usr/bin/xfs_admin
@@ -183,6 +215,7 @@ cp %{_builddir}/xfsprogs-%{version}/debian/copyright %{buildroot}/usr/share/pack
 
 %files dev
 %defattr(-,root,root,-)
+/V3/usr/lib64/libhandle.so
 /usr/include/xfs/handle.h
 /usr/include/xfs/jdm.h
 /usr/include/xfs/linux.h
@@ -229,7 +262,7 @@ cp %{_builddir}/xfsprogs-%{version}/debian/copyright %{buildroot}/usr/share/pack
 
 %files doc
 %defattr(0644,root,root,0755)
-%doc /usr/share/doc/xfsprogs/*
+/usr/share/doc/xfsprogs/*
 
 %files extras
 %defattr(-,root,root,-)
@@ -243,6 +276,8 @@ cp %{_builddir}/xfsprogs-%{version}/debian/copyright %{buildroot}/usr/share/pack
 
 %files lib
 %defattr(-,root,root,-)
+/V3/usr/lib64/libhandle.so.1
+/V3/usr/lib64/libhandle.so.1.0.3
 /usr/lib64/libhandle.so.1
 /usr/lib64/libhandle.so.1.0.3
 
