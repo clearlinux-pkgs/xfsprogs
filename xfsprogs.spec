@@ -4,14 +4,15 @@
 # Using build pattern: configure
 #
 Name     : xfsprogs
-Version  : 6.4.0
-Release  : 58
-URL      : https://mirrors.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-6.4.0.tar.xz
-Source0  : https://mirrors.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-6.4.0.tar.xz
+Version  : 6.5.0
+Release  : 59
+URL      : https://mirrors.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-6.5.0.tar.xz
+Source0  : https://mirrors.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-6.5.0.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: xfsprogs-bin = %{version}-%{release}
+Requires: xfsprogs-config = %{version}-%{release}
 Requires: xfsprogs-data = %{version}-%{release}
 Requires: xfsprogs-lib = %{version}-%{release}
 Requires: xfsprogs-license = %{version}-%{release}
@@ -41,10 +42,19 @@ install configuration steps.
 Summary: bin components for the xfsprogs package.
 Group: Binaries
 Requires: xfsprogs-data = %{version}-%{release}
+Requires: xfsprogs-config = %{version}-%{release}
 Requires: xfsprogs-license = %{version}-%{release}
 
 %description bin
 bin components for the xfsprogs package.
+
+
+%package config
+Summary: config components for the xfsprogs package.
+Group: Default
+
+%description config
+config components for the xfsprogs package.
 
 
 %package data
@@ -120,10 +130,10 @@ man components for the xfsprogs package.
 
 
 %prep
-%setup -q -n xfsprogs-6.4.0
-cd %{_builddir}/xfsprogs-6.4.0
+%setup -q -n xfsprogs-6.5.0
+cd %{_builddir}/xfsprogs-6.5.0
 pushd ..
-cp -a xfsprogs-6.4.0 buildavx2
+cp -a xfsprogs-6.5.0 buildavx2
 popd
 
 %build
@@ -131,27 +141,44 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1689786604
+export SOURCE_DATE_EPOCH=1697221205
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
+ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
 %configure --disable-static --enable-static
 make  %{?_smp_mflags}
 
 unset PKG_CONFIG_PATH
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
-export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
-export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3"
-export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -m64 -march=x86-64-v3 "
+LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
 %configure --disable-static --enable-static
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1689786604
+export GCC_IGNORE_WERROR=1
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
+ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
+export SOURCE_DATE_EPOCH=1697221205
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xfsprogs
 cp %{_builddir}/xfsprogs-%{version}/debian/copyright %{buildroot}/usr/share/package-licenses/xfsprogs/37d59df178f349b9b48ddae9baf7de9fe0c41069 || :
@@ -204,6 +231,10 @@ popd
 /usr/bin/xfs_scrub
 /usr/bin/xfs_spaceman
 
+%files config
+%defattr(-,root,root,-)
+/usr/lib/udev/rules.d/64-xfs.rules
+
 %files data
 %defattr(-,root,root,-)
 /usr/share/xfsprogs/mkfs/dax_x86_64.conf
@@ -212,6 +243,7 @@ popd
 /usr/share/xfsprogs/mkfs/lts_5.15.conf
 /usr/share/xfsprogs/mkfs/lts_5.4.conf
 /usr/share/xfsprogs/mkfs/lts_6.1.conf
+/usr/share/xfsprogs/mkfs/lts_6.6.conf
 
 %files dev
 %defattr(-,root,root,-)
