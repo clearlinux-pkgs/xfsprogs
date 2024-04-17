@@ -1,5 +1,5 @@
 PKG_NAME := xfsprogs
-URL = https://mirrors.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-6.6.0.tar.xz
+URL = https://mirrors.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-6.7.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common

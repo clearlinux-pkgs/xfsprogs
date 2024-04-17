@@ -1,20 +1,14 @@
 Configure miss: attr/attributes.h
 Configure miss: attr/attributes.h
-Configure miss: gcc options needed to detect all undeclared functions
-Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: struct attrlist_cursor
 Configure miss: struct attrlist_cursor
 Configure miss: struct fscrypt_policy_v2.log2_data_unit_size
 Configure miss: struct fscrypt_policy_v2.log2_data_unit_size
 Configure miss: sys/uuid.h
 Configure miss: sys/uuid.h
-Configure miss: umode_t
-Configure miss: umode_t
 Configure miss: uuid.h
 Configure miss: uuid.h
 Configure miss: uuid_compare
 Configure miss: uuid_compare
-Configure miss: whether fls is declared
-Configure miss: whether fls is declared
 Configure miss: x86_64-generic-linux-gnu-file
 Configure miss: x86_64-generic-linux-gnu-file
