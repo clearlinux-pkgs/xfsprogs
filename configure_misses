@@ -2,8 +2,8 @@ Configure miss: g++ option to enable C++11 features
 Configure miss: g++ option to enable C++11 features
 Configure miss: struct fscrypt_policy_v2.log2_data_unit_size
 Configure miss: struct fscrypt_policy_v2.log2_data_unit_size
-Configure miss: struct statx.stx_atomic_write_unit_min
-Configure miss: struct statx.stx_atomic_write_unit_min
+Configure miss: struct statx.stx_dio_read_offset_align
+Configure miss: struct statx.stx_dio_read_offset_align
 Configure miss: sys/uuid.h
 Configure miss: sys/uuid.h
 Configure miss: uuid.h
